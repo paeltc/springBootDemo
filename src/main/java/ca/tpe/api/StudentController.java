@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import ca.tpe.model.Student;
 import ca.tpe.service.StudentService;
 
-@RestController
 @RequestMapping(path = "api/v1/student")
+@RestController
 public class StudentController {
 	
-	private final StudentService studentService;	
-	
 	@Autowired
+	private final StudentService studentService;	
+		
 	public StudentController(StudentService studentService) {
 		this.studentService = studentService;
 	}
 	
-	@GetMapping(path = "api/v1/all")
+	@GetMapping
 	public List<Student> getAllStudents(){
 		return studentService.getAllStudents();
 	}
